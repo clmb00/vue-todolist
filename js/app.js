@@ -3,6 +3,8 @@ const { createApp } = Vue;
 createApp({
   data(){
     return{
+      warningMsg: "",
+      tempTask: "",
       tasks: [
         {
           text: "Go shopping",
@@ -33,6 +35,25 @@ createApp({
     }
   },
   methods:{
-
+    removeTask(index){
+      this.warningMsg = ""
+      if(this.tasks[index].done){
+        this.tasks.splice(index, 1);
+      } else{
+        this.warningMsg = "You must complete a task before deleting it";
+      }
+    },
+    addTask(){
+      this.warningMsg = ""
+      if (this.tempTask.length < 5){
+        this.warningMsg = "Please enter a tesk of at least 5 characters";
+        return;
+      }
+      this.tasks.unshift({
+        text: this.tempTask,
+        done: false,
+        tag: ""
+      })
+    }
   }
 }).mount('#app');

@@ -15,37 +15,17 @@
       <img src="./img/logo.png" alt="Logo">
     </div>
     <div id="input-area">
-      <input type="text" placeholder="New task">
-      <button>Add</button>
-      <p>Errore</p>
+      <input type="text" placeholder="New task" v-model.trim="tempTask">
+      <button @click="addTask()">Add</button>
+      <p>{{warningMsg}}</p>
     </div>
     <ul id="task-area">
-      <li v-for="(task, index) in tasks" class="task" :class="[task.tag, {'done': task.done}]">
+      <li v-for="(task, index) in tasks" class="task" :class="[task.tag, {'done': task.done}]" @click="task.done = !task.done">
         <div class="tag"></div>
         <span>{{task.text}}</span>
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fa-solid fa-xmark" @click.stop="removeTask(index)"></i>
       </li>
-      <!-- <li class="task">
-        <div class="tag"></div>
-        <span>Go shopping</span>
-        <i class="fa-solid fa-xmark"></i>
-      </li>
-      <li class="task">
-        <div class="tag"></div>
-        <span>Do homeworks</span>
-        <i class="fa-solid fa-xmark"></i>
-      </li>
-      <li class="task red">
-        <div class="tag"></div>
-        <span>Wash the car</span>
-        <i class="fa-solid fa-xmark"></i>
-      </li>
-      <li class="task blue">
-        <div class="tag"></div>
-        <span>Eat the dog</span>
-        <i class="fa-solid fa-xmark"></i>
-      </li> -->
-      <!-- <h3>There's nothing left to do &#x1F631;</h3> -->
+      <h3 v-if="tasks.length == 0">There's nothing left to do &#x1F631;</h3>
     </ul>
     
   </div>

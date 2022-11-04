@@ -5,6 +5,7 @@ createApp({
     return{
       warningMsg: "",
       tempTask: "",
+      numbTasks: 0,
       tasks: [
         {
           text: "Go shopping",
@@ -51,7 +52,7 @@ createApp({
     addTask(){
       this.warningMsg = ""
       if (this.tempTask.length < 5){
-        this.warningMsg = "Please enter a tesk of at least 5 characters";
+        this.warningMsg = "Please enter a task of at least 5 characters";
         return;
       }
       this.tasks.unshift({
@@ -80,5 +81,11 @@ createApp({
           elem.toggleTag = false;
       }
     }
+  },
+  mounted(){
+    this.numbTasks = this.tasks.filter((elem)=>elem.done == false).length;
+  },
+  updated(){
+    this.numbTasks = this.tasks.filter((elem)=>elem.done == false).length;
   }
 }).mount('#app');

@@ -32,6 +32,10 @@
         <i class="fa-solid fa-xmark" @click.stop="removeTask(index)"></i>
       </li>
       <h3 v-if="tasks.length == 0">There's nothing left to do &#x1F631;</h3>
+      <li v-else style="display: flex; justify-content: space-between;">
+        <span>Click the circle to change the Color Tag</span>
+        <span>Task to do: {{numbTasks}}</span>
+      </li>
     </ul>
     
   </div>

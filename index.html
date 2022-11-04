@@ -15,13 +15,19 @@
       <img src="./img/logo.png" alt="Logo">
     </div>
     <div id="input-area">
-      <input type="text" placeholder="New task" v-model.trim="tempTask">
+      <input type="text" placeholder="New task" v-model.trim="tempTask" @keyup.enter="addTask()">
       <button @click="addTask()">Add</button>
       <p>{{warningMsg}}</p>
     </div>
     <ul id="task-area">
       <li v-for="(task, index) in tasks" class="task" :class="[task.tag, {'done': task.done}]" @click="task.done = !task.done">
-        <div class="tag"></div>
+        <div class="tag" @click.stop="task.toggleTag = !task.toggleTag"></div>
+        <div class="select-tag" v-if="task.toggleTag">
+          <button class="tag-btn green" @click.stop="changeTag('green', task)"></button>
+          <button class="tag-btn red" @click.stop="changeTag('red', task)"></button>
+          <button class="tag-btn blue" @click.stop="changeTag('blue', task)"></button>
+          <button class="tag-btn" @click.stop="changeTag('', task)"></button>
+        </div>
         <span>{{task.text}}</span>
         <i class="fa-solid fa-xmark" @click.stop="removeTask(index)"></i>
       </li>

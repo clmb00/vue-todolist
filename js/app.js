@@ -9,27 +9,32 @@ createApp({
         {
           text: "Go shopping",
           done: false,
-          tag: 'green'
+          tag: 'green',
+          toggleTag: false
         },
         {
-          text: "Go shopping",
+          text: "Help Joe",
           done: false,
-          tag: ''
+          tag: '',
+          toggleTag: false
         },
         {
           text: "Do homeworks",
           done: true,
-          tag: ''
+          tag: '',
+          toggleTag: false
         },
         {
           text: "Wash the car",
           done: true,
-          tag: 'red'
+          tag: 'red',
+          toggleTag: false
         },
         {
           text: "Eat the dog",
           done: false,
-          tag: 'blue'
+          tag: 'blue',
+          toggleTag: false
         },
       ]
     }
@@ -54,6 +59,26 @@ createApp({
         done: false,
         tag: ""
       })
+      this.tempTask = "";
+    },
+    changeTag(color, elem){
+      switch(color){
+        case 'green':
+          elem.tag = "green";
+          elem.toggleTag = false;
+          break;
+        case 'red':
+          elem.tag = "red";
+          elem.toggleTag = false;
+          break;
+        case 'blue':
+          elem.tag = "blue";
+          elem.toggleTag = false;
+          break;
+        default:
+          elem.tag = '';
+          elem.toggleTag = false;
+      }
     }
   }
 }).mount('#app');

@@ -9,6 +9,7 @@ body{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 50%, #2BFF88 90%);
   color: #001533;
+  user-select: none;
 }
 
 #app{
@@ -86,6 +87,7 @@ body{
   display: flex;
   align-items: center;
   cursor: pointer;
+  position: relative;
 }
 
 .task:hover{
@@ -96,20 +98,20 @@ body{
   filter: brightness(.9);
 }
 
-.task .tag, .task i{
+.task .tag, .task i, .task .tag-btn{
   width: 25px;
   height: 25px;
   background-color: rgba(255, 255, 255, .5);
-  margin: 10px;
   cursor: pointer;
 }
 
 .task .tag{
+  margin: 10px;
   border-radius: 50%;
 }
 
-.task .tag:hover{
-  background-color: rgba(201, 201, 201, 0.5);
+.task .tag:hover, .task .tag-btn:hover{
+  background-color: rgba(145, 145, 145, 0.664);
 }
 
 .task span{
@@ -120,6 +122,7 @@ body{
 }
 
 .task i{
+  margin: 10px;
   border-radius: 6px;
   text-align: center;
   line-height: 25px;
@@ -139,11 +142,11 @@ body{
   background-color: rgba(190, 255, 174, .8);
 }
 
-.task.green .tag{
+.task.green .tag, .tag-btn.green{
   background-color: rgb(139, 255, 110, .6);
 }
 
-.task.green .tag:hover{
+.task.green .tag:hover, .tag-btn.green:hover{
   background-color: rgb(139, 255, 110, 1);
 }
 
@@ -151,11 +154,11 @@ body{
   background-color: rgba(255, 174, 174, .8);
 }
 
-.task.red .tag{
+.task.red .tag, .tag-btn.red{
   background-color: rgba(255, 110, 110, .6);
 }
 
-.task.red .tag:hover{
+.task.red .tag:hover, .tag-btn.red:hover{
   background-color: rgba(255, 110, 110, 1);
 }
 
@@ -163,11 +166,11 @@ body{
   background-color: rgba(174, 175, 255, .8);
 }
 
-.task.blue .tag{
+.task.blue .tag, .tag-btn.blue{
   background-color: rgba(110, 132, 255, .6);
 }
 
-.task.blue .tag:hover{
+.task.blue .tag:hover, .tag-btn.blue:hover{
   background-color: rgba(110, 132, 255, 1);
 }
 
@@ -181,4 +184,24 @@ h3{
 
 .task.done{
   filter: brightness(.6);
+}
+
+.select-tag{
+  position: absolute;
+  top: 14px;
+  left: 44px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 125px;
+  height: 30px;
+  background-color: rgb(202, 228, 230);
+  box-shadow: 0 0 5px grey;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.task .tag-btn{
+  border-radius: 50%;
+  border: none;
 }

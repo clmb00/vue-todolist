@@ -80,6 +80,15 @@ createApp({
           elem.tag = '';
           elem.toggleTag = false;
       }
+    },
+    moveTask(down, index){
+      if (down){
+        if (index == this.tasks.length - 1) return;
+        [ this.tasks[index], this.tasks[index+1] ] = [ this.tasks[index+1], this.tasks[index] ];
+      } else {
+        if (index == 0) return;
+        [ this.tasks[index], this.tasks[index-1] ] = [ this.tasks[index-1], this.tasks[index] ];
+      }
     }
   },
   mounted(){

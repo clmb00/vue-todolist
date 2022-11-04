@@ -98,7 +98,7 @@ body{
   filter: brightness(.9);
 }
 
-.task .tag, .task i, .task .tag-btn{
+.task .tag, .task > i, .task .tag-btn{
   width: 25px;
   height: 25px;
   background-color: rgba(255, 255, 255, .5);
@@ -121,19 +121,19 @@ body{
   line-height: 30px;
 }
 
-.task i{
+.task > i{
   margin: 10px;
   border-radius: 6px;
   text-align: center;
   line-height: 25px;
 }
 
-.task i:hover{
+.task > i:hover{
   background-color: rgba(255, 255, 255, .8);
   color: rgb(210, 0, 0);
 }
 
-.task i:active{
+.task > i:active{
   background-color: rgba(255, 255, 255, 1);
   color: darkred;
 }
@@ -204,4 +204,32 @@ h3{
 .task .tag-btn{
   border-radius: 50%;
   border: none;
+}
+
+.move-buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70%;
+  margin: 0px 8px;
+}
+
+.move-buttons button{
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, .5);
+  border: none;
+  border-radius: 3px;
+}
+
+.move-buttons button:hover{
+  background-color: rgba(180, 180, 180, 0.8);
+}
+
+.move-buttons button:hover{
+  background-color: rgba(77, 77, 77, 0.8);
+  color: white;
 }

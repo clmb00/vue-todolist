@@ -29,6 +29,14 @@
           <button class="tag-btn" @click.stop="changeTag('', task)"></button>
         </div>
         <span>{{task.text}}</span>
+        <div class="move-buttons">
+          <button @click.stop="moveTask(false, index)">
+            <i class="fa-solid fa-sort-up"></i>
+          </button>
+          <button @click.stop="moveTask(true, index)">
+            <i class="fa-solid fa-sort-down"></i>
+          </button>
+        </div>
         <i class="fa-solid fa-xmark" @click.stop="removeTask(index)"></i>
       </li>
       <h3 v-if="tasks.length == 0">There's nothing left to do &#x1F631;</h3>

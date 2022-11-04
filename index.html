@@ -20,14 +20,14 @@
       <p>Errore</p>
     </div>
     <ul id="task-area">
-      <li class="task green">
+      <li v-for="(task, index) in tasks" class="task" :class="[task.tag, {'done': task.done}]">
         <div class="tag"></div>
-        <span>Go shopping</span>
+        <span>{{task.text}}</span>
         <i class="fa-solid fa-xmark"></i>
       </li>
-      <li class="task">
+      <!-- <li class="task">
         <div class="tag"></div>
-        <span>Eat Banana</span>
+        <span>Go shopping</span>
         <i class="fa-solid fa-xmark"></i>
       </li>
       <li class="task">
@@ -40,12 +40,12 @@
         <span>Wash the car</span>
         <i class="fa-solid fa-xmark"></i>
       </li>
-      <li class="task green">
+      <li class="task blue">
         <div class="tag"></div>
         <span>Eat the dog</span>
         <i class="fa-solid fa-xmark"></i>
-      </li>
-      <h3>There's nothing left to do &#x1F631;</h3>
+      </li> -->
+      <!-- <h3>There's nothing left to do &#x1F631;</h3> -->
     </ul>
     
   </div>

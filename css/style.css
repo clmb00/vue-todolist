@@ -94,10 +94,6 @@ body{
   filter: brightness(1.2);
 }
 
-.task:active{
-  filter: brightness(.9);
-}
-
 .task .tag, .task > i, .task .tag-btn{
   width: 25px;
   height: 25px;
